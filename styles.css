@@ -1,89 +1,114 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    min-height: 100vh;
-    background-color: #f4f4f9;
-  }
-  
-  .container {
-    width: 100%;
-    max-width: 1200px;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  h1 {
-    margin-bottom: 20px;
-  }
-  
-  form {
-    margin-bottom: 20px;
-  }
-  
-  label {
-    display: block;
-    margin: 10px 0 5px;
-  }
-  
-  input {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-  }
-  
-  button {
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-right: 10px;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  #shelfContainer {
-    margin-top: 20px;
-    display: flex;
-    justify-content: flex-start; /* Align books to the left */
-    align-items: flex-end; /* Bottom-align books to emulate a shelf */
-    flex-wrap: wrap;
-    gap: 2px; /* 2px gap between books */
-  }
-  
-  /* Book spines */
-  .bookSpine {
-    background: #d4e6f1;
-    color: black;
-    position: relative;
-    transform-origin: top left; /* Rotate from the top-left corner */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 5px; /* Add padding for book thickness */
-  }
-  
-  /* Spine text */
-  .bookSpine span {
-    writing-mode: vertical-lr; /* Adjusted to vertical-left-right writing */
-    font-family: Arial, sans-serif;
-    font-weight: normal;
-    font-size: 1rem; /* Default text size */
-    margin-top: 1rem; /* Space from top (scaled 1cm in terms of height) */
-    text-align: center;
-    overflow-wrap: break-word; /* Allow breaking of long words */
-    word-wrap: break-word;
-  }
-  
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  background-color: #f4f4f9;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+form {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+input, select {
+  margin-right: 10px;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#shelfContainer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+  transition: background-color 0.3s;
+}
+
+/* Book spines */
+.bookSpine {
+  background: #d4e6f1;
+  color: black;
+  position: relative;
+  transform-origin: top left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.bookSpine:hover {
+  transform: rotateY(180deg); /* Flip the book spine */
+}
+
+/* Spine text */
+.bookSpine span {
+  writing-mode: vertical-lr;
+  font-family: Arial, sans-serif;
+  font-weight: normal;
+  font-size: 1rem;
+  margin-top: 1rem;
+  text-align: center;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.bookSpine b {
+  font-weight: bold; /* Make author bold */
+}
+
+.shelf-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Dragging effect */
+.dragging {
+  opacity: 0.5;
+}
